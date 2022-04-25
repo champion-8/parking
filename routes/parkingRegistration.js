@@ -6,7 +6,6 @@ const parkingRegistValidator = require('../validators').parkingRegistration;
 const { handleValidationError } = require('../middlewares')
 
 
-// router.get('/parking', parkingController.list);
 router.post('/parking-regist', parkingRegistValidator.checkRegist(), handleValidationError, parkingRegistrationController.regist);
 router.put('/parking-regist/:id', parkingRegistValidator.checkLeave(), handleValidationError, parkingRegistrationController.leave);
 
