@@ -4,7 +4,19 @@
 
 start dev at 04/2022 with Parinya Kowitsakul
 
-
+### Config Database
+Move to the base directory, Config connection to database `.config/config.json`
+```bashxxxx
+{
+  "development": {
+    "username": "postgres",
+    "password": "abcDEF00",
+    "database": "parking",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
+```
 
 ## Running
 
