@@ -152,4 +152,37 @@ describe("Parking Regist API", () => {
       });
     });
   });
+
+
+  describe("Leave Parking", () => {
+    describe("Create Parking Regist Data Type is wrong", () => {
+      it("Status 400", async () => {
+        await supertest(app).put("/api/parking-regist/A").expect(400);
+      });
+
+      it("Error Message", async () => {
+        await supertest(app)
+          .put("/api/parking-regist/A")
+          .then((res) => {
+            expect(res.body.errorMessage).toBe("Id must be a Integer");
+          });
+      });
+    });
+
+    describe("Create Parking Regist Not Found", () => {
+      it("Status 400", async () => {
+        await supertest(app).put("/api/parking-regist/50000").expect(400);
+      });
+
+      it("Error Message", async () => {
+        await supertest(app)
+          .put("/api/parking-regist/50000")
+          .then((res) => {
+            expect(res.body.errorMessage).toBe(
+              "Parking registration not found"
+            );
+          });
+      });
+    });
+  });
 });
