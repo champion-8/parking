@@ -1,0 +1,17 @@
+version: '3'
+services:
+  # postgres: 
+  #   image: postgres
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=abcDEF00
+  #     - POSTGRES_DB=parking
+  #   ports: 
+  #     - '5432:5432'
+
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - 8080:8080

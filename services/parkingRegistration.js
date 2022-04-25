@@ -80,6 +80,8 @@ exports.registration = async function(data) {
 
             await transaction.commit();
             return { id, name }
+        } else {
+            throw('Parink is full')
         }
          
     } catch (e) {
